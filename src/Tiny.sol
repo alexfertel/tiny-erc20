@@ -2,16 +2,19 @@
 pragma solidity 0.8.13;
 
 // External references
-import { ERC20 } from "@rari-capital/solmate/src/tokens/ERC20.sol";
+import { ERC20 } from "solmate/tokens/ERC20.sol";
 
-contract Token is ERC20 {
+contract Tiny is ERC20 {
     constructor(
         string memory _name,
         string memory _symbol,
-        uint8 _decimals
-    ) ERC20(_name, _symbol, _decimals) {}
+        uint8 _decimals,
+        uint256 initialSupply
+    ) ERC20(_name, _symbol, _decimals) {
+       _mint(msg.sender, initialSupply);
+    }
 
-    function hi() public view returns (string memory) {
+    function hi() public pure returns (string memory) {
         return "world";
     }
 }

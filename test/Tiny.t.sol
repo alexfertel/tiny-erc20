@@ -4,15 +4,15 @@ pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 import "../src/Tiny.sol";
 
-contract Tiny is Test {
+contract TinyTest is Test {
     Tiny public tiny;
 
     function setUp() public {
-        tiny = new Tiny();
+        tiny = new Tiny("Tiny", "TNY", 18, 1000000000000000000000000);
     }
 
     function testHi() public {
-        string answer = tiny.hi();
+        string memory answer = tiny.hi();
         assertEq(answer, "world");
     }
 
